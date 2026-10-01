@@ -19,7 +19,7 @@
 | Package manager | **npm** (not pnpm — Hostinger corepack breaks) |
 | Build command | `npm run build` |
 | Output directory | `apps/web/dist` |
-| Entry file | `apps/api/dist/server.js` |
+| Entry file | `apps/api/hostinger-entry.cjs` |
 
 Set `SERVE_WEB=true` so Express serves the React build.
 
