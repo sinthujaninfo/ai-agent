@@ -1,0 +1,17 @@
+{
+  "name": "ai-agent",
+  "private": true,
+  "packageManager": "pnpm@10.13.1",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "dev:api": "pnpm --filter @ai-agent/api dev",
+    "dev:web": "pnpm --filter @ai-agent/web dev",
+    "build": "pnpm --filter @ai-agent/shared build && pnpm --filter @ai-agent/api build && pnpm --filter @ai-agent/web build",
+    "test": "pnpm --filter @ai-agent/api test",
+    "db:migrate": "pnpm --filter @ai-agent/api db:migrate",
+    "lint": "pnpm -r run lint --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
