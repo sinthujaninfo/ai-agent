@@ -8,8 +8,13 @@
     "build": "pnpm --filter @ai-agent/shared build && pnpm --filter @ai-agent/api build && pnpm --filter @ai-agent/web build",
     "test": "pnpm --filter @ai-agent/api test",
     "db:migrate": "pnpm --filter @ai-agent/api db:migrate",
-    "start": "node apps/api/dist/server.js",
+    "start": "node apps/api/hostinger-entry.cjs",
     "lint": "pnpm -r run lint --if-present"
+  },
+  "pnpm": {
+    "overrides": {
+      "baseline-browser-mapping": "2.11.26"
+    }
   },
   "engines": {
     "node": ">=20"
