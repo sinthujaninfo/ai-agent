@@ -1,15 +1,19 @@
 {
   "name": "ai-agent",
   "private": true,
-  "packageManager": "pnpm@10.13.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "pnpm -r --parallel run dev",
-    "dev:api": "pnpm --filter @ai-agent/api dev",
-    "dev:web": "pnpm --filter @ai-agent/web dev",
-    "build": "pnpm --filter @ai-agent/shared build && pnpm --filter @ai-agent/api build && pnpm --filter @ai-agent/web build",
-    "test": "pnpm --filter @ai-agent/api test",
-    "db:migrate": "pnpm --filter @ai-agent/api db:migrate",
-    "lint": "pnpm -r run lint --if-present"
+    "dev": "npm run dev -w @ai-agent/api & npm run dev -w @ai-agent/web",
+    "dev:api": "npm run dev -w @ai-agent/api",
+    "dev:web": "npm run dev -w @ai-agent/web",
+    "build": "npm run build -w @ai-agent/shared && npm run build -w @ai-agent/api && npm run build -w @ai-agent/web",
+    "test": "npm run test -w @ai-agent/api",
+    "db:migrate": "npm run db:migrate -w @ai-agent/api",
+    "start": "node apps/api/dist/server.js",
+    "lint": "npm run lint --workspaces --if-present"
   },
   "engines": {
     "node": ">=20"
