@@ -6,18 +6,22 @@
 - MySQL database created in hPanel
 - Domain / subdomain pointed at the Node app
 
-## 1. Build locally (or on CI)
+## Hostinger Node.js (Git deploy)
 
-```bash
-pnpm install
-pnpm build
-```
+**Build settings that work on Shared hosting:**
 
-Artifacts:
+| Field | Value |
+|--------|--------|
+| Framework | Other |
+| Branch | `main` |
+| Node | `20.x` |
+| Root | `./` |
+| Package manager | **npm** (not pnpm — Hostinger corepack breaks) |
+| Build command | `npm run build` |
+| Output directory | `apps/web/dist` |
+| Entry file | `apps/api/dist/server.js` |
 
-- `apps/api/dist` — API
-- `apps/web/dist` — static dashboard
-- `packages/shared/dist` — required dependency build
+Set `SERVE_WEB=true` so Express serves the React build.
 
 ## 2. Upload
 
